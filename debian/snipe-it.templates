@@ -1,0 +1,118 @@
+Template: snipe-it/dbserver
+Type: string
+Default: localhost
+_Description: Database server:
+ Where does your database run?
+ .
+ Leave it at 'localhost' when your mysql server is running on same host as the
+ web server.
+
+Template: snipe-it/dbname
+Type: string
+Default: snipeit
+_Description: Database name:
+ What's the name of your database?
+ .
+ Leave it at default name when the database is not already there.
+
+Template: snipe-it/dbuser
+Type: string
+Default: snipeit
+_Description: Database user:
+ What's the name of the database user?
+ .
+ Leave it at default if user not exisiting yet.
+
+Template: snipe-it/dbpassword
+Type: password
+_Description: Database password:
+ Password for the database user
+ .
+ Can be left empty when you have already set it in the config file.
+
+Template: snipe-it/appurl
+Type: string
+Default: http://localhost
+_Description: App url:
+ The URL from which snipe-it will be reachable (e.g. https://example.com).
+ .
+ You can correct this value in the .env file later on.
+
+Template: snipe-it/dbcreate
+Type: boolean
+Default: false
+_Description: Create database?
+ Should the database and user be created?
+ .
+ This works only when database is running on localhost. Leave it at false when insecure.
+
+Template: snipe-it/mailserver
+Type: boolean
+Default: false
+_Description: (yes|no)
+ Do you want to configure mail server settings?
+ .
+ You can add the settings in the .env file later on.
+
+Template: snipe-it/outgoing
+Type: string
+Default: localhost
+_Description: server address
+ Outgoing mailserver address:
+ .
+ The server snipe-it can send notifications over.
+
+Template: snipe-it/serverport
+Type: string
+Default: 25
+_Description: port
+ Server port number:
+ .
+ The port emails are sent over.
+
+Template: snipe-it/emailuser
+Type: string
+Default:
+_Description: SMTP username:
+ User for authentication to the email server.
+ .
+ Can be left empty.
+
+Template: snipe-it/emailpassword
+Type: password
+Default:
+_Description: SMTP password:
+ Password for the smtp user:
+ .
+ Can be left empty.
+
+Template: snipe-it/emailencryption
+Type: select
+Choices: null, TLS, SSL
+Default: null
+_Description: Encryption(null/TLS/SSL):
+ Which encryption algorithm does the email server use?
+
+Template: snipe-it/fromaddress
+Type: string
+Default: root@localhost
+_Description: address for from header
+ From which address are emails sent:
+
+Template: snipe-it/fromname
+Type: string
+Default: Snipe-IT
+_Description: name for from header
+ From which name are emails sent:
+
+Template: snipe-it/replytoaddress
+Type: string
+Default: you@example.com
+_Description: address for reply-to header
+ To which address should email replies go:
+
+Template: snipe-it/replytoname
+Type: string
+Default: Snipe-IT
+_Description: name for reply-to header
+ To which name should email replies go?

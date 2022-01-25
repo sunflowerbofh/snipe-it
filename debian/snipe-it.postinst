@@ -1,0 +1,201 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+log ()
+{
+	eval "$@" | tee -a /var/log/snipeit-install.log
+}
+
+case "${1}" in
+	configure)
+
+		HOST=$(cat /etc/hostname)
+		URL="https://${HOST}"
+
+		db_get snipe-it/appurl || true
+		APP_URL="${RET:-$URL}"
+
+		db_get snipe-it/dbcreate
+		DATABASE_CREATE="${RET:-false}"
+
+		db_get snipe-it/dbserver || true
+		DATABASE_SERVER="${RET:-'localhost'}"
+
+		db_get snipe-it/dbname || true
+		DATABASE_NAME="${RET:-'snipeit'}"
+
+		db_get snipe-it/dbuser || true
+		DATABASE_USER="${RET:-'snipeit'}"
+
+		db_get snipe-it/dbpassword
+		DATABASE_PASSWORD="${RET}"
+
+		db_get snipe-it/mailserver || true
+		MAIL_SERVER_CREATE="${RET:-false}"
+
+		if [ "$MAIL_SERVER_CREATE" = "true" ]
+		then
+			db_get snipe-it/outgoing || true
+			MAIL_HOST="${RET:-'localhost'}"
+
+			db_get snipe-it/serverport || true
+			MAIL_PORT="${RET:-'25'}"
+
+			db_get snipe-it/emailuser || true
+			MAIL_USERNAME="${RET}"
+
+			db_get snipe-it/emailpassword || true
+			MAIL_PASSWORD="${RET}"
+
+			db_get snipe-it/emailencryption || true
+			MAIL_ENCRYPTION="${RET:-'null'}"
+
+			db_get snipe-it/fromaddress || true
+			MAIL_FROM_ADDR="${RET}"
+
+			db_get snipe-it/fromname || true
+			MAIL_FROM_NAME="${RET}"
+
+			db_get snipe-it/replytoaddress || true
+			MAIL_REPLYTO_ADDR="${RET}"
+
+			db_get snipe-it/replytoname || true
+			MAIL_REPLYTO_NAME="${RET}"
+		fi
+
+		db_unregister snipe-it/dbpassword
+		db_unregister snipe-it/emailpassword
+
+		db_stop || true
+
+		APP_PATH="/usr/share/snipe-it"
+		APP_PATH_RW="/var/lib/snipe-it"
+		mkdir -p "$APP_PATH_RW"
+
+		echo "Permissions for $APP_PATH..."
+		chown -R www-data:www-data "$APP_PATH"
+		chown www-data:www-data "$APP_PATH_RW"
+
+		# directory not there at the beginning
+		if [ ! -e "${APP_PATH}/public/uploads" ]
+		then
+			mkdir -p "${APP_PATH_RW}/public/uploads"
+			chown -R www-data:www-data "${APP_PATH_RW}/public"
+			ln -s "${APP_PATH_RW}/public/uploads" "${APP_PATH}/public/uploads"
+			chown www-data:www-data "${APP_PATH}/public/uploads"
+		fi
+
+		# storage must be writable
+		if [ ! -e "${APP_PATH_RW}/storage" ]
+		then
+			cp -r "${APP_PATH}/storage.orig" "${APP_PATH_RW}/storage"
+			chown -R www-data:www-data "${APP_PATH_RW}/storage"
+		fi
+
+		if [ ! -e "${APP_PATH}/storage" ]
+		then
+			ln -s "${APP_PATH_RW}/storage" "${APP_PATH}/storage"
+			chown www-data:www-data "${APP_PATH}/storage"
+		fi
+
+		# config file not there, has to be created
+		if [ ! -e /etc/snipe-it/env ]
+		then
+			cp "${APP_PATH}/.env.example" /etc/snipe-it/env
+		fi
+		
+		if [ ! -e "${APP_PATH}/.env" ]
+		then
+			ln -s /etc/snipe-it/env "${APP_PATH}/.env"
+		else
+			echo "Configuration ${APP_PATH}/.env already there - not touching."
+		fi
+
+		mkdir -p /var/www/.cache
+		chown www-data:www-data /var/www/.cache
+
+		# FIXME
+		# php modules come from vendor/..., without key generation won't work
+		cp -p "${APP_PATH}/composer.json" "${APP_PATH}/composer.json.orig"
+		cp /tmp/snipe-it/composer.json "${APP_PATH}/composer.json"
+		if [ ! -e "${APP_PATH}/vendor" ]
+		then
+			sudo -u www-data composer install --no-dev --prefer-dist --working-dir "$APP_PATH"
+		fi
+
+		echo "* Generating the application key."
+		log "php ${APP_PATH}/artisan key:generate --force"
+
+		TZONE=$(cat /etc/timezone)
+		CONFFILE="/etc/snipe-it/env"
+		chown root:www-data $CONFFILE
+
+		if [ -z "$DATABASE_PASSWORD" ]
+		then
+			DATABASE_PASSWORD=$(awk -F= '/DB_PASSWORD/ { print $2 }')
+			if [ -z "$DATABASE_PASSWORD" ]
+			then
+				DATABASE_PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c16; echo)
+			fi
+		fi
+
+		sed -i '1 i\#Created By Snipe-it Installer' "${CONFFILE}"
+		sed -i "s|^\\(APP_TIMEZONE=\\).*|\\1$TZONE|" "${CONFFILE}"
+		sed -i "s|^\\(DB_HOST=\\).*|\\1$DATABASE_SERVER|" "${CONFFILE}"
+		sed -i "s|^\\(DB_DATABASE=\\).*|\\1$DATABASE_NAME|" "${CONFFILE}"
+		sed -i "s|^\\(DB_USERNAME=\\).*|\\1$DATABASE_USER|" "${CONFFILE}"
+		sed -i "s|^\\(DB_PASSWORD=\\).*|\\1'$DATABASE_PASSWORD'|" "${CONFFILE}"
+		sed -i "s|^\\(APP_URL=\\).*|\\1$APP_URL|" "${CONFFILE}"
+
+		if [ "$MAIL_SERVER_CREATE" = 'true' ]
+		then
+			sed -i "s|^\\(MAIL_HOST=\\).*|\\1$MAIL_HOST|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_PORT=\\).*|\\1$MAIL_PORT|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_USERNAME=\\).*|\\1$MAIL_USERNAME|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_PASSWORD=\\).*|\\1'$MAIL_PASSWORD'|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_ENCRYPTION=\\).*|\\1$MAIL_ENCRYPTION|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_FROM_ADDR=\\).*|\\1$MAIL_FROM_ADDR|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_FROM_NAME=\\).*|\\1\"$MAIL_FROM_NAME\"|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_REPLYTO_ADDR=\\).*|\\1$MAIL_REPLYTO_ADDR|" "${CONFFILE}"
+			sed -i "s|^\\(MAIL_REPLYTO_NAME=\\).*|\\1\"$MAIL_REPLYTO_NAME\"|" "${CONFFILE}"
+		fi
+
+		if [ "$DATABASE_CREATE" = "true" ]
+		then
+			echo "* Creating MariaDB Database/User ${DATABASE_NAME}/${DATABASE_USER}."
+			mysql --execute="CREATE DATABASE ${DATABASE_NAME};" || true
+			mysql --execute="GRANT ALL PRIVILEGES ON ${DATABASE_NAME}.* TO ${DATABASE_USER}@localhost IDENTIFIED BY '$DATABASE_PASSWORD';" || true
+		else
+			echo "Create database on $DATABASE_SERVER and continue with dpkg-reconfigure snipe-it"
+		fi
+
+		echo "* Artisan Migrate."
+		log "php ${APP_PATH}/artisan migrate --force" || true
+
+		echo "Fixing permissions on cache..."
+		chown -R www-data:www-data "${APP_PATH_RW}/storage/framework/cache"
+
+		echo "Restarting web server"
+		if [ -e /usr/share/apache2/apache2-maintscript-helper ]
+		then
+			. /usr/share/apache2/apache2-maintscript-helper
+			apache2_reload restart
+		fi
+
+		;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+
+		;;
+
+	*)
+
+		echo "postinst called with unknown argument \`${1}'" >&2
+		exit 1
+		;;
+esac
+
+exit 0

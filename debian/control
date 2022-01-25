@@ -1,0 +1,85 @@
+Source: snipe-it
+Section: web
+Priority: optional
+Maintainer: Team Linux & Infrastructure Services <bfh-linux-sysadmin@lists.bfh.science>
+XSBC-Uploaders: Daniel Baumann <daniel.baumann@bfh.ch>
+Bugs: mailto:bfh-linux-users@lists.bfh.science
+Build-Depends:
+ debhelper-compat (= 13),
+Rules-Requires-Root: no
+Standards-Version: 4.5.1
+Homepage: https://snipeitapp.com
+Vcs-Browser: https://git.bfh.science/packages/bullseye-extras/snipe-it
+Vcs-Git: https://git.bfh.science/packages/bullseye-extras/snipe-it
+
+Package: snipe-it
+Section: web
+Architecture: all
+Depends:
+ apache2 | httpd,
+ composer,
+ openssl,
+ php (>= 7.4),
+ php-bcmath,
+ php-curl,
+ php-gd | php-imagick,
+ php-json,
+ php-mbstring,
+ php-mysql,
+ php-xml,
+ php-zip,
+ php-codesniffer,
+ php-defuse-php-encryption,
+ php-doctrine-cache (>= 1.10), php-doctrine-cache (<< 2.0),
+ php-doctrine-common,
+# php-doctrine-common (>= 2.12), php-doctrine-common (<< 3.0),
+ php-doctrine-dbal (>= 2.10), php-doctrine-dbal (<< 3.0),
+ php-doctrine-inflector,
+# php-doctrine-inflector (>= 1.3), php-doctrine-inflector (<< 2.0),
+ php-doctrine-instantiator (>= 1.3), php-doctrine-instantiator (<< 2.0),
+ php-doctrine-persistence,
+ php-guzzlehttp-promises,
+ php-guzzlehttp-psr7,
+ php-laravel-framework (>= 6.20), php-laravel-framework (<< 7.0),
+ php-league-flysystem,
+# php-league-flysystem (>= 1.1.4), php-league-flysystem (<< 2.0),
+ php-masterminds-html5,
+ php-mockery,
+ php-monolog,
+ php-nesbot-carbon (>= 2.32), php-nesbot-carbon (<< 3.0),
+ php-parsedown (>= 1.7), php-parsedown (<< 2.0),
+ php-nyholm-psr7,
+ php-parser,
+ php-phpdocumentor-reflection-docblock (>= 5.1), php-phpdocumentor-reflection-docblock (<< 6.0),
+ php-phpseclib,
+ php-phpspec-prophecy (>= 1.10), php-phpspec-prophecy (<< 2.0),
+ php-psr-cache,
+ php-psr-container,
+ php-psr-http-client,
+ php-psr-http-message,
+ php-psr-log,
+ php-psr-simple-cache,
+ php-symfony-console,
+ php-symfony-debug,
+ php-symfony-finder,
+ php-symfony-http-foundation,
+ php-symfony-http-kernel,
+ php-symfony-mailer,
+ php-symfony-polyfill-ctype,
+ php-symfony-polyfill-intl-idn,
+ php-symfony-polyfill-intl-normalizer,
+ php-symfony-polyfill-mbstring,
+ php-symfony-polyfill-php72,
+ php-symfony-polyfill-php73,
+ php-symfony-process,
+ php-symfony-var-dumper,
+ php-tokenizer,
+ ${misc:Depends},
+Recommends:
+ php-ldap,
+Suggests:
+ dehydrated,
+ dehydrated-apache2,
+ mariadb-server,
+Description: Powerful, user-friendly asset management system
+ snipe-it.

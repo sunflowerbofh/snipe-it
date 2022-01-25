@@ -1,0 +1,279 @@
+Installing dependencies from lock file
+Verifying lock file contents can be installed on current platform.
+Package operations: 133 installs, 0 updates, 0 removals
+  - Syncing symfony/polyfill-php80 (v1.23.0) into cache
+  - Syncing symfony/polyfill-php72 (v1.23.0) into cache
+  - Syncing symfony/polyfill-mbstring (v1.23.0) into cache
+  - Syncing symfony/var-dumper (v4.4.25) into cache
+  - Syncing tightenco/collect (v8.34.0) into cache
+  - Syncing psr/simple-cache (1.0.1) into cache
+  - Syncing psr/log (1.1.4) into cache
+  - Syncing symfony/polyfill-ctype (v1.23.0) into cache
+  - Syncing phpoption/phpoption (1.7.5) into cache
+  - Syncing vlucas/phpdotenv (v3.6.8) into cache
+  - Syncing symfony/css-selector (v4.4.25) into cache
+  - Syncing tijsverkoyen/css-to-inline-styles (2.2.3) into cache
+  - Syncing symfony/routing (v4.4.25) into cache
+  - Syncing symfony/process (v4.4.25) into cache
+  - Syncing symfony/polyfill-php73 (v1.23.0) into cache
+  - Syncing symfony/polyfill-intl-normalizer (v1.23.0) into cache
+  - Syncing symfony/polyfill-intl-idn (v1.23.0) into cache
+  - Syncing symfony/deprecation-contracts (v2.4.0) into cache
+  - Syncing symfony/mime (v5.3.2) into cache
+  - Syncing symfony/http-foundation (v4.4.25) into cache
+  - Syncing symfony/http-client-contracts (v2.4.0) into cache
+  - Syncing symfony/event-dispatcher-contracts (v1.1.9) into cache
+  - Syncing symfony/event-dispatcher (v4.4.25) into cache
+  - Syncing symfony/debug (v4.4.25) into cache
+  - Syncing symfony/error-handler (v4.4.25) into cache
+  - Syncing symfony/http-kernel (v4.4.25) into cache
+  - Syncing symfony/finder (v4.4.25) into cache
+  - Syncing psr/container (1.1.1) into cache
+  - Syncing symfony/service-contracts (v2.4.0) into cache
+  - Syncing symfony/console (v4.4.25) into cache
+  - Syncing symfony/polyfill-iconv (v1.23.0) into cache
+  - Syncing doctrine/lexer (1.2.1) into cache
+  - Syncing egulias/email-validator (2.1.25) into cache
+  - Syncing swiftmailer/swiftmailer (v6.2.7) into cache
+  - Syncing paragonie/random_compat (v9.99.99) into cache
+  - Syncing ramsey/uuid (3.9.3) into cache
+  - Syncing opis/closure (3.6.2) into cache
+  - Syncing symfony/translation-contracts (v2.4.0) into cache
+  - Syncing symfony/translation (v4.4.25) into cache
+  - Syncing nesbot/carbon (2.49.0) into cache
+  - Syncing monolog/monolog (2.2.0) into cache
+  - Syncing league/mime-type-detection (1.7.0) into cache
+  - Syncing league/flysystem (1.1.4) into cache
+  - Syncing league/commonmark (1.6.4) into cache
+  - Syncing dragonmantank/cron-expression (v2.3.1) into cache
+  - Syncing doctrine/inflector (1.4.4) into cache
+  - Syncing laravel/framework (v6.20.29) into cache
+  - Syncing adldap2/adldap2 (v10.3.2) into cache
+  - Syncing ralouphie/getallheaders (3.0.3) into cache
+  - Syncing psr/http-message (1.0.1) into cache
+  - Syncing guzzlehttp/psr7 (1.8.2) into cache
+  - Syncing guzzlehttp/promises (1.4.1) into cache
+  - Syncing guzzlehttp/guzzle (6.5.5) into cache
+  - Syncing alek13/slack (1.12.0) into cache
+  - Syncing asm89/stack-cors (1.3.0) into cache
+  - Syncing barryvdh/laravel-cors (v0.11.4) into cache
+  - Syncing maximebf/debugbar (v1.16.5) into cache
+  - Syncing barryvdh/laravel-debugbar (v3.6.2) into cache
+  - Syncing psr/cache (1.0.1) into cache
+  - Syncing doctrine/annotations (1.13.1) into cache
+  - Syncing doctrine/reflection (1.2.2) into cache
+  - Syncing doctrine/event-manager (1.1.1) into cache
+  - Syncing doctrine/collections (1.6.7) into cache
+  - Syncing doctrine/cache (1.11.3) into cache
+  - Syncing doctrine/persistence (1.3.8) into cache
+  - Syncing doctrine/common (2.13.3) into cache
+  - Syncing doctrine/deprecations (v0.5.3) into cache
+  - Syncing doctrine/dbal (2.13.2) into cache
+  - Syncing squizlabs/php_codesniffer (3.6.0) into cache
+  - Syncing masterminds/html5 (2.7.4) into cache
+  - Syncing eduardokum/laravel-mail-auto-embed (1.0.5) into cache
+  - Syncing enshrined/svg-sanitize (0.13.3) into cache
+  - Syncing erusev/parsedown (1.7.4) into cache
+  - Syncing fideloper/proxy (4.4.1) into cache
+  - Syncing intervention/image (2.5.1) into cache
+  - Syncing javiereguiluz/easyslugger (v1.0.0) into cache
+  - Syncing laminas/laminas-zendframework-bridge (1.1.1) into cache
+  - Syncing laravel/helpers (v1.4.1) into cache
+  - Syncing symfony/psr-http-message-bridge (v2.1.0) into cache
+  - Syncing phpseclib/phpseclib (2.0.32) into cache
+  - Syncing psr/http-factory (1.0.1) into cache
+  - Syncing php-http/message-factory (v1.0.2) into cache
+  - Syncing nyholm/psr7 (1.4.0) into cache
+  - Syncing league/event (2.2.0) into cache
+  - Syncing lcobucci/jwt (3.4.5) into cache
+  - Syncing defuse/php-encryption (v2.3.1) into cache
+  - Syncing league/oauth2-server (8.3.1) into cache
+  - Syncing laminas/laminas-diactoros (2.4.1) into cache
+  - Syncing firebase/php-jwt (v5.4.0) into cache
+  - Syncing laravel/passport (v9.4.0) into cache
+  - Syncing laravel/slack-notification-channel (v2.3.1) into cache
+  - Syncing nikic/php-parser (v4.10.5) into cache
+  - Syncing psy/psysh (v0.10.8) into cache
+  - Syncing laravel/tinker (v2.6.1) into cache
+  - Syncing laravelcollective/html (v6.2.1) into cache
+  - Syncing league/csv (9.6.2) into cache
+  - Syncing mtdowling/jmespath.php (2.6.1) into cache
+  - Syncing aws/aws-sdk-php (3.185.0) into cache
+  - Syncing league/flysystem-aws-s3-v3 (1.0.29) into cache
+  - Syncing league/flysystem-cached-adapter (1.1.0) into cache
+  - Syncing neitanod/forceutf8 (v2.0.4) into cache
+  - Syncing php-parallel-lint/php-console-color (v0.3) into cache
+  - Syncing php-parallel-lint/php-console-highlighter (v0.5) into cache
+  - Syncing filp/whoops (2.13.0) into cache
+  - Syncing nunomaduro/collision (v3.2.0) into cache
+  - Syncing robrichards/xmlseclibs (3.1.1) into cache
+  - Syncing onelogin/php-saml (3.6.1) into cache
+  - Syncing paragonie/constant_time_encoding (v2.4.0) into cache
+  - Syncing patchwork/utf8 (v1.3.3) into cache
+  - Syncing phpdocumentor/reflection-common (2.2.0) into cache
+  - Syncing phpdocumentor/type-resolver (1.4.0) into cache
+  - Syncing sebastian/recursion-context (3.0.1) into cache
+  - Syncing sebastian/exporter (3.1.3) into cache
+  - Syncing sebastian/diff (3.0.3) into cache
+  - Syncing sebastian/comparator (3.0.3) into cache
+  - Syncing webmozart/assert (1.10.0) into cache
+  - Syncing phpdocumentor/reflection-docblock (5.2.2) into cache
+  - Syncing doctrine/instantiator (1.4.0) into cache
+  - Syncing phpspec/prophecy (1.13.0) into cache
+  - Syncing pragmarx/google2fa (8.0.0) into cache
+  - Syncing bacon/bacon-qr-code (1.0.3) into cache
+  - Syncing pragmarx/google2fa-qrcode (v1.0.3) into cache
+  - Syncing pragmarx/google2fa-laravel (v1.4.1) into cache
+  - Syncing rollbar/rollbar (v2.1.0) into cache
+  - Syncing rollbar/rollbar-laravel (v6.0.0) into cache
+  - Syncing spatie/temporary-directory (1.3.0) into cache
+  - Syncing spatie/db-dumper (2.21.1) into cache
+  - Syncing spatie/laravel-backup (6.11.1) into cache
+  - Syncing tecnickcom/tc-lib-color (1.14.6) into cache
+  - Syncing tecnickcom/tc-lib-barcode (1.17.6) into cache
+  - Syncing tightenco/ziggy (0.9.4) into cache
+  - Syncing unicodeveloper/laravel-password (1.0.4) into cache
+  - Syncing watson/validating (4.0.0) into cache
+  - Installing symfony/polyfill-php80 (v1.23.0): Cloning eca0bf41ed from cache
+  - Installing symfony/polyfill-php72 (v1.23.0): Cloning 9a142215a3 from cache
+  - Installing symfony/polyfill-mbstring (v1.23.0): Cloning 2df51500ad from cache
+  - Installing symfony/var-dumper (v4.4.25): Cloning 31ea689a8e from cache
+  - Installing tightenco/collect (v8.34.0): Cloning b069783ab0 from cache
+  - Installing psr/simple-cache (1.0.1): Cloning 408d5eafb8 from cache
+  - Installing psr/log (1.1.4): Cloning d49695b909 from cache
+  - Installing symfony/polyfill-ctype (v1.23.0): Cloning 46cd95797e from cache
+  - Installing phpoption/phpoption (1.7.5): Cloning 994ecccd8f from cache
+  - Installing vlucas/phpdotenv (v3.6.8): Cloning 5e679f7616 from cache
+  - Installing symfony/css-selector (v4.4.25): Cloning c1e29de6dc from cache
+  - Installing tijsverkoyen/css-to-inline-styles (2.2.3): Cloning b43b05cf43 from cache
+  - Installing symfony/routing (v4.4.25): Cloning 3a3c2f197a from cache
+  - Installing symfony/process (v4.4.25): Cloning cd61e6dd27 from cache
+  - Installing symfony/polyfill-php73 (v1.23.0): Cloning fba8933c38 from cache
+  - Installing symfony/polyfill-intl-normalizer (v1.23.0): Cloning 8590a5f561 from cache
+  - Installing symfony/polyfill-intl-idn (v1.23.0): Cloning 65bd267525 from cache
+  - Installing symfony/deprecation-contracts (v2.4.0): Cloning 5f38c8804a from cache
+  - Installing symfony/mime (v5.3.2): Cloning 47dd791215 from cache
+  - Installing symfony/http-foundation (v4.4.25): Cloning 0c79d5a65a from cache
+  - Installing symfony/http-client-contracts (v2.4.0): Cloning 7e82f6084d from cache
+  - Installing symfony/event-dispatcher-contracts (v1.1.9): Cloning 84e23fdcd2 from cache
+  - Installing symfony/event-dispatcher (v4.4.25): Cloning 047773e701 from cache
+  - Installing symfony/debug (v4.4.25): Cloning a8d2d5c944 from cache
+  - Installing symfony/error-handler (v4.4.25): Cloning 310a756cec from cache
+  - Installing symfony/http-kernel (v4.4.25): Cloning 3795165596 from cache
+  - Installing symfony/finder (v4.4.25): Cloning ed33314396 from cache
+  - Installing psr/container (1.1.1): Cloning 8622567409 from cache
+  - Installing symfony/service-contracts (v2.4.0): Cloning f040a30e04 from cache
+  - Installing symfony/console (v4.4.25): Cloning a62acecdf5 from cache
+  - Installing symfony/polyfill-iconv (v1.23.0): Cloning 63b5bb7db8 from cache
+  - Installing doctrine/lexer (1.2.1): Cloning e864bbf590 from cache
+  - Installing egulias/email-validator (2.1.25): Cloning 0dbf5d7845 from cache
+  - Installing swiftmailer/swiftmailer (v6.2.7): Cloning 15f7faf850 from cache
+  - Installing paragonie/random_compat (v9.99.99): Cloning 84b4dfb120 from cache
+  - Installing ramsey/uuid (3.9.3): Cloning 7e1633a696 from cache
+  - Installing opis/closure (3.6.2): Cloning 06e2ebd25f from cache
+  - Installing symfony/translation-contracts (v2.4.0): Cloning 95c812666f from cache
+  - Installing symfony/translation (v4.4.25): Cloning dfe132c5c6 from cache
+  - Installing nesbot/carbon (2.49.0): Cloning 93d9db91c0 from cache
+  - Installing monolog/monolog (2.2.0): Cloning 1cb1cde8e8 from cache
+  - Installing league/mime-type-detection (1.7.0): Cloning 3b9dff8aaf from cache
+  - Installing league/flysystem (1.1.4): Cloning f3ad69181b from cache
+  - Installing league/commonmark (1.6.4): Cloning c3c8b7217c from cache
+  - Installing dragonmantank/cron-expression (v2.3.1): Cloning 65b2d8ee1f from cache
+  - Installing doctrine/inflector (1.4.4): Cloning 4bd5c1cdfc from cache
+  - Installing laravel/framework (v6.20.29): Cloning 00fa9c04ae from cache
+  - Installing adldap2/adldap2 (v10.3.2): Cloning b2203d800c from cache
+  - Installing ralouphie/getallheaders (3.0.3): Cloning 120b605dfe from cache
+  - Installing psr/http-message (1.0.1): Cloning f6561bf28d from cache
+  - Installing guzzlehttp/psr7 (1.8.2): Cloning dc960a9129 from cache
+  - Installing guzzlehttp/promises (1.4.1): Cloning 8e7d04f1f6 from cache
+  - Installing guzzlehttp/guzzle (6.5.5): Cloning 9d4290de1c from cache
+  - Installing alek13/slack (1.12.0): Cloning 9db79a6228 from cache
+  - Installing asm89/stack-cors (1.3.0): Cloning b9c31def6a from cache
+  - Installing barryvdh/laravel-cors (v0.11.4): Cloning 03492f1a3b from cache
+  - Installing maximebf/debugbar (v1.16.5): Cloning 6d51ee9e94 from cache
+  - Installing barryvdh/laravel-debugbar (v3.6.2): Cloning 70b8975491 from cache
+  - Installing psr/cache (1.0.1): Cloning d11b50ad22 from cache
+  - Installing doctrine/annotations (1.13.1): Cloning e6e7b7d5b4 from cache
+  - Installing doctrine/reflection (1.2.2): Cloning fa587178be from cache
+  - Installing doctrine/event-manager (1.1.1): Cloning 41370af6a3 from cache
+  - Installing doctrine/collections (1.6.7): Cloning 55f8b79926 from cache
+  - Installing doctrine/cache (1.11.3): Cloning 3bb5588cec from cache
+  - Installing doctrine/persistence (1.3.8): Cloning 7a6eac9fb6 from cache
+  - Installing doctrine/common (2.13.3): Cloning f3812c026e from cache
+  - Installing doctrine/deprecations (v0.5.3): Cloning 9504165960 from cache
+  - Installing doctrine/dbal (2.13.2): Cloning 8dd39d2ead from cache
+  - Installing squizlabs/php_codesniffer (3.6.0): Cloning ffced0d2c8 from cache
+  - Installing masterminds/html5 (2.7.4): Cloning 9227822783 from cache
+  - Installing eduardokum/laravel-mail-auto-embed (1.0.5): Cloning 83349a6a35 from cache
+  - Installing enshrined/svg-sanitize (0.13.3): Cloning bc66593f25 from cache
+  - Installing erusev/parsedown (1.7.4): Cloning cb17b6477d from cache
+  - Installing fideloper/proxy (4.4.1): Cloning c073b2bd04 from cache
+  - Installing intervention/image (2.5.1): Cloning abbf18d5ab from cache
+  - Installing javiereguiluz/easyslugger (v1.0.0): Cloning 11524a3fd7 from cache
+  - Installing laminas/laminas-zendframework-bridge (1.1.1): Cloning 6ede70583e from cache
+  - Installing laravel/helpers (v1.4.1): Cloning febb10d8da from cache
+  - Installing symfony/psr-http-message-bridge (v2.1.0): Cloning 81db2d4ae8 from cache
+  - Installing phpseclib/phpseclib (2.0.32): Cloning f5c4c19880 from cache
+  - Installing psr/http-factory (1.0.1): Cloning 12ac7fcd07 from cache
+  - Installing php-http/message-factory (v1.0.2): Cloning a478cb11f6 from cache
+  - Installing nyholm/psr7 (1.4.0): Cloning 23ae1f00fb from cache
+  - Installing league/event (2.2.0): Cloning d2cc124cf9 from cache
+  - Installing lcobucci/jwt (3.4.5): Cloning 511629a544 from cache
+  - Installing defuse/php-encryption (v2.3.1): Cloning 77880488b9 from cache
+  - Installing league/oauth2-server (8.3.1): Cloning 97dbc97b3b from cache
+  - Installing laminas/laminas-diactoros (2.4.1): Cloning 36ef09b73e from cache
+  - Installing firebase/php-jwt (v5.4.0): Cloning d2113d9b2e from cache
+  - Installing laravel/passport (v9.4.0): Cloning 011bd500e8 from cache
+  - Installing laravel/slack-notification-channel (v2.3.1): Cloning f428e76b8d from cache
+  - Installing nikic/php-parser (v4.10.5): Cloning 4432ba399e from cache
+  - Installing psy/psysh (v0.10.8): Cloning e4573f4775 from cache
+  - Installing laravel/tinker (v2.6.1): Cloning 04ad32c1a3 from cache
+  - Installing laravelcollective/html (v6.2.1): Cloning ae15b9c4bf from cache
+  - Installing league/csv (9.6.2): Cloning f28da6e483 from cache
+  - Installing mtdowling/jmespath.php (2.6.1): Cloning 9b87907a81 from cache
+  - Installing aws/aws-sdk-php (3.185.0): Cloning 6c919bc226 from cache
+  - Installing league/flysystem-aws-s3-v3 (1.0.29): Cloning 4e25cc0582 from cache
+  - Installing league/flysystem-cached-adapter (1.1.0): Cloning d1925efb22 from cache
+  - Installing neitanod/forceutf8 (v2.0.4): Cloning c1fbe70bfb from cache
+  - Installing php-parallel-lint/php-console-color (v0.3): Cloning b6af326b20 from cache
+  - Installing php-parallel-lint/php-console-highlighter (v0.5): Cloning 21bf002f07 from cache
+  - Installing filp/whoops (2.13.0): Cloning 2edbc73a46 from cache
+  - Installing nunomaduro/collision (v3.2.0): Cloning f7c45764df from cache
+  - Installing robrichards/xmlseclibs (3.1.1): Cloning f8f19e58f2 from cache
+  - Installing onelogin/php-saml (3.6.1): Cloning a7328b1188 from cache
+  - Installing paragonie/constant_time_encoding (v2.4.0): Cloning f34c2b11eb from cache
+  - Installing patchwork/utf8 (v1.3.3): Cloning e1fa4d4a57 from cache
+  - Installing phpdocumentor/reflection-common (2.2.0): Cloning 1d01c49d4e from cache
+  - Installing phpdocumentor/type-resolver (1.4.0): Cloning 6a467b8989 from cache
+  - Installing sebastian/recursion-context (3.0.1): Cloning 367dcba38d from cache
+  - Installing sebastian/exporter (3.1.3): Cloning 6b853149ea from cache
+  - Installing sebastian/diff (3.0.3): Cloning 14f72dd46e from cache
+  - Installing sebastian/comparator (3.0.3): Cloning 1071dfcef7 from cache
+  - Installing webmozart/assert (1.10.0): Cloning 6964c76c78 from cache
+  - Installing phpdocumentor/reflection-docblock (5.2.2): Cloning 069a785b21 from cache
+  - Installing doctrine/instantiator (1.4.0): Cloning d56bf61029 from cache
+  - Installing phpspec/prophecy (1.13.0): Cloning be1996ed8a from cache
+  - Installing pragmarx/google2fa (8.0.0): Cloning 26c4c5cf30 from cache
+  - Installing bacon/bacon-qr-code (1.0.3): Cloning 5a91b62b9d from cache
+  - Installing pragmarx/google2fa-qrcode (v1.0.3): Cloning fd5ff0531a from cache
+  - Installing pragmarx/google2fa-laravel (v1.4.1): Cloning f9014fd7ea from cache
+  - Installing rollbar/rollbar (v2.1.0): Cloning ff3db5739d from cache
+  - Installing rollbar/rollbar-laravel (v6.0.0): Cloning 11df7e1931 from cache
+  - Installing spatie/temporary-directory (1.3.0): Cloning f517729b37 from cache
+  - Installing spatie/db-dumper (2.21.1): Cloning 05e5955fb8 from cache
+  - Installing spatie/laravel-backup (6.11.1): Cloning 3ede36961b from cache
+  - Installing tecnickcom/tc-lib-color (1.14.6): Cloning 83cdb57fd9 from cache
+  - Installing tecnickcom/tc-lib-barcode (1.17.6): Cloning a8a7183e2b from cache
+  - Installing tightenco/ziggy (0.9.4): Cloning 82ea6ec6cb from cache
+  - Installing unicodeveloper/laravel-password (1.0.4): Cloning 806e345ae9 from cache
+  - Installing watson/validating (4.0.0): Cloning b8731af37e from cache
+Package doctrine/reflection is abandoned, you should avoid using it. Use roave/better-reflection instead.
+Package patchwork/utf8 is abandoned, you should avoid using it. Use symfony/polyfill-mbstring or symfony/string instead.
+Package fzaninotto/faker is abandoned, you should avoid using it. No replacement was suggested.
+Package phpunit/php-token-stream is abandoned, you should avoid using it. No replacement was suggested.
+Generating optimized autoload files
+Class ParsedownTest located in ./vendor/erusev/parsedown/test/ParsedownTest.php does not comply with psr-0 autoloading standard. Skipping.
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+65 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+

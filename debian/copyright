@@ -1,0 +1,15 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: snipe-it
+Source: https://github.com/.../releases
+
+Files: *
+Copyright: 2013-2021 Grokability, Inc.
+License: GPL-3+
+
+Files: debian/*
+Copyright: 2021 BFH Team Linux & Infrastructure Services <bfh-linux-sysadmin@lists.bfh.science>
+License: GPL-3+
+
+License: GPL-3+
+ On Debian systems the full text of the GPL-3 can be found in
+  /usr/share/common-licenses/GPL-3

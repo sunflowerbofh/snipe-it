@@ -1,0 +1,16 @@
+* composer.json implementation not good; should be done by a patch
+* composer.lock must be removed (patch?)
+
+* postrm correct?
+remove: /usr/share/snipe-it weg; /var/lib/snipe-it, /etc/snipe-it + DB noch da
+purge: alles weg außer DB+Grants ✓
+
+* php "module" (composer) aus debian verwenden die es gibt,
+  die anderen vorlaeufig in debian/local/vendor includen
+  => snipe-it_php (TBC) [DOING]
+
+* repeat database user password query ?
+
+* database not created when already there
+  Aber was passiert, wenn falsches passwort hinterlegt oder name ändert oder...?
+=> config wird geschrieben, aber DB wird nicht verändert -> foo

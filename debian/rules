@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+SHELL := sh -e
+
+%:
+	dh ${@}
+
+override_dh_auto_install:
+	mkdir -p debian/snipe-it/usr/share/snipe-it
+	find . -maxdepth 1 -mindepth 1 -and -not -name debian -and -not -name ".pc" -and -not -name ".git*" -exec cp -a {} debian/snipe-it/usr/share/snipe-it \;
+
+	# config
+	mkdir -p debian/snipe-it/etc/snipe-it
+
+	# read/write directories
+	mv debian/snipe-it/usr/share/snipe-it/storage debian/snipe-it/usr/share/snipe-it/storage.orig ; \
+
+	# tests
+	rm -rf debian/snipe-it/usr/share/snipe-it/tests
+
+	# read-write directories
+	# later on when tested
+
+override dh_auto_test:

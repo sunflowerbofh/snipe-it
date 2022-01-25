@@ -1,0 +1,2 @@
+debian/local/apache2/*.conf /etc/apache2/conf-available
+debian/local/composer.json /tmp/snipe-it
