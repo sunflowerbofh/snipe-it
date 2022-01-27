@@ -73,6 +73,7 @@ Depends:
  php-symfony-polyfill-php73,
  php-symfony-process,
  php-symfony-var-dumper,
+ phpunit-version,
  php-tokenizer,
  ${misc:Depends},
 Recommends:

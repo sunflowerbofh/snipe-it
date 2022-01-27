@@ -118,6 +118,7 @@
       "/usr/share/php/Psr/SimpleCache",
       "/usr/share/php/Ramsey/Uuid",
       "/usr/share/php/random_compat",
+      "/usr/share/php/SebastianBergmann/Version",
       "/usr/share/php/Symfony",
       "/usr/share/php/Symfony/Component/HttpFoundation",
       "/usr/share/php/Symfony/Component/CssSelector",
