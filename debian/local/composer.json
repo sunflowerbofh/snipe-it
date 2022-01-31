@@ -88,6 +88,7 @@
       "/usr/share/php/GuzzleHttp/Promise",
       "/usr/share/php/GuzzleHttp/Psr7",
       "/usr/share/php/Illuminate",
+      "/usr/share/php/Illuminate/Support",
       "/usr/share/php/Illuminate/Notifications/Channels",
       "/usr/share/php/Http/Message",
       "/usr/share/php/Illuminate/Foundation",
