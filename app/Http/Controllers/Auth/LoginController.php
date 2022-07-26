@@ -82,7 +82,6 @@ class LoginController extends Controller
         }
 
         if (Setting::getSettings()->login_common_disabled == '1') {
-            \Log::debug('login_common_disabled is set to 1 - return a 403');
             return view('errors.403');
         }
 
@@ -116,7 +115,7 @@ class LoginController extends Controller
                     Auth::login($user);
                 } else {
                     $username = $saml->getUsername();
-                    \Log::debug("SAML user '$username' could not be found in database.");
+                    \Log::warning("SAML user '$username' could not be found in database.");
                     $request->session()->flash('error', trans('auth/message.signin.error'));
                     $saml->clearData();
                 }
@@ -125,6 +124,22 @@ class LoginController extends Controller
                     $user->last_login = \Carbon::now();
                     $user->save();
                 }
+                
+            } catch (\Exception $e) {
+                \Log::debug('There was an error authenticating the SAML user: '.$e->getMessage());
+                throw new \Exception($e->getMessage());
+            }
+
+        // Fallthrough with better logging
+        } else {
+
+            // Better logging
+            if (!$saml->isEnabled()) {
+                \Log::debug("SAML page requested, but SAML does not seem to enabled.");
+            } else {
+                \Log::debug("SAML page requested, but samlData seems empty.");
+            }
+        }
                 
             } catch (\Exception $e) {
                 \Log::debug('There was an error authenticating the SAML user: '.$e->getMessage());
@@ -182,7 +197,7 @@ class LoginController extends Controller
              Log::debug("Local user ".$username." does not exist");
              Log::debug("Creating local user ".username);
 
-             if ($user = Ldap::createUserFromLdap($ldap_user, $request->input('password'))) {
+             if ($user = Ldap::createUserFromLdap($ldap_user)) { //this handles passwords on its own
                  Log::debug("Local user created.");
              } else {
                  Log::debug("Could not create local user.");
@@ -259,12 +274,10 @@ class LoginController extends Controller
 
         //If the environment is set to ALWAYS require SAML, return access denied
         if (config('app.require_saml')) {
-            \Log::debug('require SAML is enabled in the .env - return a 403');
             return view('errors.403');
         }
 
         if (Setting::getSettings()->login_common_disabled == '1') {
-            \Log::debug('login_common_disabled is set to 1 - return a 403');
             return view('errors.403');
         }
 
@@ -372,8 +385,6 @@ class LoginController extends Controller
                 [-2, -2, -2, -2]
             );
 
-        $user->save(); // make sure to save *AFTER* displaying the barcode, or else we might save a two_factor_secret that we never actually displayed to the user if the barcode fails
-
         return view('auth.two_factor_enroll')->with('barcode_obj', $barcode_obj);
     }
 
@@ -418,7 +429,7 @@ class LoginController extends Controller
             return redirect()->route('two-factor')->with('error', trans('auth/message.two_factor.code_required'));
         }
 
-        if (! $request->has('two_factor_secret')) { // TODO this seems almost the same as above?
+        if (! $request->has('two_factor_secret')) {
             return redirect()->route('two-factor')->with('error', 'Two-factor code is required.');
         }
 
@@ -452,11 +463,6 @@ class LoginController extends Controller
         $samlLogout = $request->session()->get('saml_logout');
         $sloRedirectUrl = null;
         $sloRequestUrl = null;
-    
-        // Only allow GET if we are doing SAML SLO otherwise abort with 405
-        if ($request->isMethod('GET') && !$samlLogout) {
-            abort(405);
-        }
 
         if ($saml->isEnabled()) {
             $auth = $saml->getAuth();
