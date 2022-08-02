@@ -115,7 +115,7 @@ class LoginController extends Controller
                     Auth::login($user);
                 } else {
                     $username = $saml->getUsername();
-                    \Log::warning("SAML user '$username' could not be found in database.");
+                    \Log::debug("SAML user '$username' could not be found in database.");
                     $request->session()->flash('error', trans('auth/message.signin.error'));
                     $saml->clearData();
                 }
@@ -124,22 +124,6 @@ class LoginController extends Controller
                     $user->last_login = \Carbon::now();
                     $user->save();
                 }
-                
-            } catch (\Exception $e) {
-                \Log::debug('There was an error authenticating the SAML user: '.$e->getMessage());
-                throw new \Exception($e->getMessage());
-            }
-
-        // Fallthrough with better logging
-        } else {
-
-            // Better logging
-            if (!$saml->isEnabled()) {
-                \Log::debug("SAML page requested, but SAML does not seem to enabled.");
-            } else {
-                \Log::debug("SAML page requested, but samlData seems empty.");
-            }
-        }
                 
             } catch (\Exception $e) {
                 \Log::debug('There was an error authenticating the SAML user: '.$e->getMessage());
